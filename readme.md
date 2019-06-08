@@ -1,8 +1,10 @@
-# Principles
+# Tucker's Principles
 
 Here is a list of principles, mostly programming related. I hope they help you.
 
 I'll update these from time to time as I introspect and learn. Feel free to leave comments in the issues or on my [Twitter](https://twitter.com/tuckerconnelly).
+
+If you make your own list, please share :)
 
 
 ## Programming

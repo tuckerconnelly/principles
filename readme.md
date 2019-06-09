@@ -30,7 +30,7 @@ If you make your own list, please share :)
  * To debug, log or assert state at various stages in the pipeline
  * Prefer parallelized black-box tests to (supposedly fast) white-box tests
  * If you’re reaching for the UI to perform an action and assert something is working, stop and write a test
- * In white-box testing, nly mock functions you own
+ * In white-box testing, only mock functions you own
  * Prefer equality assertion over all others (KISS)
  * Assert once against the whole output, instead of 10 times against various properties of the output
  * Only assert against hard-coded values

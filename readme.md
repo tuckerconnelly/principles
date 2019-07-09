@@ -58,6 +58,7 @@ If you make your own list, please share :)
  * Don’t enforce a structure on jsonb column content. That’s called a schema, and best left to the postgres schema
  * Try to use not null with defaults so data is always returned with a consistent type
  * Helper functions over higher-order functions over middleware over layers: https://github.com/zeit/micro/issues/8
+ * Mobile-first: only use min-width media queries.
 
 
 ## DevOps

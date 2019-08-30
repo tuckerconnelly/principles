@@ -7,7 +7,7 @@ I'll update these from time to time as I introspect and learn. Feel free to leav
 If you make your own list, please share :)
 
 
-## Programming
+## Web Programming
 
  * Every line of code should be used; delete it if not.
  * Follow the test trophy. https://twitter.com/kentcdodds/status/960723172591992832
@@ -59,6 +59,9 @@ If you make your own list, please share :)
  * Try to use not null with defaults so data is always returned with a consistent type
  * Helper functions over higher-order functions over middleware over layers: https://github.com/zeit/micro/issues/8
  * Mobile-first: only use min-width media queries.
+ * Avoid ELK stack when possible. Really, avoid any stack built on a Java (slow, memory-intensive) open source library with a fresh coat of design paint.
+ * "The competent programmer is fully aware of the strictly limited size of his own skull; therefore he approaches the programming task in full humility, and among other things he avoids clever tricks like the plague." ~ Dijkstra
+ * "Just because you can do something, doesn't mean you should." ~ JL, responding to a ~200 line Postgres query
 
 
 ## DevOps
@@ -140,6 +143,7 @@ If you make your own list, please share :)
  * Hold people accountable to consequences, not rule breaking. Let people get close to the customer
  * “Let chaos reign, then reign in the chaos” - High Output Management
  * Double do instead of double check
+ * Write a good example before delegating
 
 
 ## Strategy

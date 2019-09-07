@@ -112,6 +112,16 @@ If you make your own list, please share :)
  * Don’t pass a huge amount of data through parameters, especially when using joblib. Use a cached “load_data” function instead
 
 
+## Scraping
+
+ * Plan for failures in everything. Every service throws random 500s.
+ * Be very clear what data is necessary, and what data you can default to null.
+ * When resolving links between two services (same business, same person, etc), use any way of matching you can think of, but be very speicific and pessimistic about matches. For instance, use phone number, specific latitude + longitude (4 decimal places), exact same address.
+ * Use queues with retries, and create 1 deployment per queue, with autoscaling on both the nodes and the pods.
+ * If a scrape doesn't execute perfectly, log the reason why somewhere (like, in the database).
+ * Call the service API directly, through puppeteer.
+
+
 ## Management
 
  * One-on-ones every week are important for clearing the air.

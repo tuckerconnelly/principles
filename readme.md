@@ -154,6 +154,7 @@ If you make your own list, please share :)
  * “Let chaos reign, then reign in the chaos” - High Output Management
  * Double do instead of double check
  * Write a good example before delegating
+ * When working with new employees, start tasks three weeks before they're due--1 week to complete the task, 1 week to review, and 1 week for you to re-do it for them if necessary.
 
 
 ## Strategy

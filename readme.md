@@ -193,7 +193,7 @@ If you have your own list, please share :)
 
  * Do all your work as if you're doing it for God.
  * Always face the chaos. Don’t let the comfort of employment atrophy you.
- * Tell the truth, or at least, don’t lie.
+ * Tell the truth, or least, if it's too difficult to discern what's true, don’t lie.
  * _Never_ walk away from a deal feeling like you’ve been “taken.”
  * Slow down negotiations, and don’t agree to anything verbally, prematurely.
  * “A foolish consistency is the hobgoblin of little minds.”

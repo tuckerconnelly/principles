@@ -191,6 +191,7 @@ If you have your own list, please share :)
 
 ## Other
 
+ * Do all your work as if you're doing it for God.
  * Always face the chaos. Don’t let the comfort of employment atrophy you.
  * Tell the truth, or at least, don’t lie.
  * _Never_ walk away from a deal feeling like you’ve been “taken.”
@@ -199,4 +200,3 @@ If you have your own list, please share :)
  * The best systems are emergent, organic, and antifragile.
  * Read every day.
  * Be wary of perfection fallacy—it does not have to be perfect to be valuable to someone.
- * Do all your work as if you're doing it for God.

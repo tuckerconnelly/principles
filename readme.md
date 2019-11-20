@@ -68,6 +68,7 @@ If you have your own list, please share :)
  * Use feature flags so you can automatically push code to production, constantly.
  * When setting resource limits, remove all limits, add nodes, see new resource usage, and set new limits.
  * _2_ ounces of prevention (planning, protocols, restrictions, alerts) for every pound of potentially needed cure (the integral of [potential downside if things go] * [the likelihood that each will happen]).
+ * When scaling, go expensive and messy. You can cut costs later, if it's even necessary.
 
 
 ## React

@@ -21,7 +21,7 @@ If you have your own list, please share :)
  * If possible, make the whole database schema first, to avoid tedious migrations later.
  * Clearly denote hacks; make them awkwardly obvious with variable names and comments.
  * The most likely cause of the bug is you, not the tools (from Pragmatic Programmer, "SELECT isn't broken").
- * Do one thing at a time; handle one domain at a time.
+ * Do one thing at a time; handle one domain concept at a time.
  * Create clear sections within a file or function with, if necessary, over-the-top comments.
  * Write idiomatic code; if not possible, write comments.
  * Black-box testing (American) gives better bang-for-buck than white-box testing (UK).
@@ -31,12 +31,12 @@ If you have your own list, please share :)
  * Assert once against the whole output, instead of 10 times against various properties of the output.
  * Prefer asserting against hard-coded values.
  * Strike a balance between the unattainable ideal of one assertion per test and the fast-but-messy testing-everything-in-a-single-test.
- * Use a setup function instead of beforeEach. `beforeEach` is essential inversion-of-control.
+ * Use a setup function instead of beforeEach. `beforeEach` is essentially inversion-of-control.
  * Leave the database messy after testing--i.e., perform clean up in set up function--so you can observe values in the case of a failure.
  * Divide tests into consistent sections. I recommend: set up, test code, assertions, and clean up.
  * Make sure your test assertions give good error messages.
  * Logging output in tests is an indication you need a better assertion.
- * Get as close to the parlance of the docs as possible—don’t put your own spin on it, unless the library is terrible.
+ * Get as close to the parlance of the docs as possible—don’t put your own spin on it, unless the library goes against normal language conventions.
  * Composition over inheritance.
  * Composition over configuration.
  * The inversion-of-control pattern puts some framework developer in control instead of you. Avoid whenever possible.
@@ -193,7 +193,7 @@ If you have your own list, please share :)
 
 ## Other
 
- * Do all your work as if you're doing it for God.
+ * Do all your work as if you're doing it for God or a higher power.
  * Always face the chaos. Don’t let the comfort of employment atrophy you.
  * Tell the truth, or least, if it's too difficult to discern what's true, don’t lie.
  * _Never_ walk away from a deal feeling like you’ve been “taken.”

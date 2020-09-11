@@ -111,7 +111,7 @@ If you have your own list, please share :)
  * Don’t pass a huge amount of data through parameters, especially when using joblib. Use a cached “load_data” function instead.
 
 
-## Scraping
+## ETL/Scraping
 
  * Plan for failures in everything. Every service throws random 500s.
  * Be very clear what data is necessary, and what data you can default to null.
@@ -120,6 +120,9 @@ If you have your own list, please share :)
  * If a scrape doesn't execute perfectly, log the reason why somewhere (like, in the database).
  * Call the service API directly, through puppeteer.
  * Source of truth should be implicit. Always allow updating data points from multiple sources.
+ * Never use a massive, magic upsert. Inserts and updates are two different operations and should be handled explicitly.
+ * Flow should be import -> verify/de-duplicate -> refresh.
+ * Deduplication is a very important step and should be handled carefully. Decide upfront if you want manual deduplication (high quality, time consuming), or automatic deduplication (fast, but could introduce false positives/negatives).
 
 
 ## Management

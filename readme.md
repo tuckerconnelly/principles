@@ -119,6 +119,7 @@ If you have your own list, please share :)
  * Use queues with retries, and create 1 deployment per queue, with autoscaling on both the nodes and the pods.
  * If a scrape doesn't execute perfectly, log the reason why somewhere (like, in the database).
  * Call the service API directly, through puppeteer.
+ * Source of truth should be implicit. Always allow updating data points from multiple sources.
 
 
 ## Management

@@ -59,6 +59,7 @@ If you have your own list, please share :)
  * "The competent programmer is fully aware of the strictly limited size of his own skull; therefore he approaches the programming task in full humility, and among other things he avoids clever tricks like the plague." ~ Dijkstra.
  * "Just because you can do something, doesn't mean you should." ~ JL, responding to a ~200 line Postgres query.
  * The maximum size of redis values is 512MB. So, cache metrics in redis. Cache rows in postgres.
+ * When dealing with dates, always check timezones.
 
 
 ## DevOps

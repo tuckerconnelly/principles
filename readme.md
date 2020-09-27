@@ -60,6 +60,9 @@ If you have your own list, please share :)
  * "Just because you can do something, doesn't mean you should." ~ JL, responding to a ~200 line Postgres query.
  * The maximum size of redis values is 512MB. So, cache metrics in redis. Cache rows in postgres.
  * When dealing with dates, always check timezones.
+ * Keep migrations small, to get better error messages, so they execute more quickly, and so you have a better idea of progress when making many changes.
+ * Always create indicies on foreign keys.
+ * Always create on delete (usually cascade) + on update triggers.
 
 
 ## DevOps

@@ -18,20 +18,18 @@ If you have your own list, please share :)
  * Look to existing, popular libraries for ideas on architectural boundaries that actually work.
    * For example, `semantic-ui` for abstract component props.
  * Function names follow {verb}[{noun}] format.
- * If possible, make the whole database schema first, to avoid tedious migrations later.
+ * Make as much of the database as possible at once, to avoid tedious migrations later.
  * Clearly denote hacks; make them awkwardly obvious with variable names and comments.
  * The most likely cause of the bug is you, not the tools (from Pragmatic Programmer, "SELECT isn't broken").
- * Do one thing at a time; handle one domain concept at a time.
  * Create clear sections within a file or function with, if necessary, over-the-top comments.
  * Write idiomatic code; if not possible, write comments.
  * Black-box testing (American) gives better bang-for-buck than white-box testing (UK).
- * If you’re reaching for the UI to perform an action and assert something is working, you should probably stop and write a test.
  * In white-box testing, only mock functions you own.
  * Prefer equality assertion over others (keep it simple).
  * Assert once against the whole output, instead of 10 times against various properties of the output.
  * Prefer asserting against hard-coded values.
  * Strike a balance between the unattainable ideal of one assertion per test and the fast-but-messy testing-everything-in-a-single-test.
- * Use a setup function instead of beforeEach. `beforeEach` is essentially inversion-of-control.
+ * Use a setup function instead of beforeEach. `beforeEach` is essentially inversion-of-control and ties you to the test framework.
  * Leave the database messy after testing--i.e., perform clean up in set up function--so you can observe values in the case of a failure.
  * Divide tests into consistent sections. I recommend: set up, test code, assertions, and clean up.
  * Make sure your test assertions give good error messages.
@@ -39,17 +37,14 @@ If you have your own list, please share :)
  * Get as close to the parlance of the docs as possible—don’t put your own spin on it, unless the library goes against normal language conventions.
  * Composition over inheritance.
  * Composition over configuration.
- * The inversion-of-control pattern puts some framework developer in control instead of you. Avoid whenever possible.
+ * The inversion-of-control pattern puts some framework developer in control instead of you. Avoid whenever possible because you lose flexibility. Better to have a blank slate when writing each new function, and bring higher-order functions in as a piecemeal IOC framework. This avoids the Gorilla-Banana Problem.
  * Writing a few extra lines of code on the concrete level to gain the ultimate abstraction is worth it. AKA, Write Everything Twice, or Martin Fowler's "Rule of Three"
- * If you can’t deliver clean code on a deadline, it’s not the system’s fault; you’re probably just in over your head.
- * Keep the mainline pristine. Unused “maybe” code should be in a separate branch or behind a feature flag.
- * It’s a privilege to commit directly to mainline. >80% of your PRs should be flawless.
+ * Keep the mainline as pristine as possible, try to leave unused "maybe" code to feature branches, or just delete it.
+ * It’s a privilege to commit directly to mainline. >80% of your PRs should be LGTM.
  * Thinking and planning before writing code saves time, as long as you’re painting with broad strokes.
  * Use git tags to denote any important commits/events, such as large code deletions.
  * Use guard clauses; conditionals should be one-level-deep max, almost all the time.
  * Handle errors first in functions.
- * PRs should not be optional, unless 80%+ of the PRs are “LGTM."
- * Use helper functions over global, mutable “context” variable.
  * Only and always write tests when: the cost of time spent doing manual tests > benefit of being able to change the architecture quickly, there’s a bug with code customers are currently using, there’s a bug with code that’s likely to exist for another year, or the consequences of a bug are catestrophic.
  * Don’t enforce a structure on Postgres jsonb column content. That’s better left to the actual schema.
  * Try to use not null with defaults so data is always returned with a consistent type.
@@ -60,7 +55,7 @@ If you have your own list, please share :)
  * "Just because you can do something, doesn't mean you should." ~ JL, responding to a ~200 line Postgres query.
  * The maximum size of redis values is 512MB. So, cache metrics in redis. Cache rows in postgres.
  * When dealing with dates, always check timezones.
- * Keep migrations small, to get better error messages, so they execute more quickly, and so you have a better idea of progress when making many changes.
+ * Keep migrations small, to get better error messages, so they execute more quickly, and so you have a better idea of progress when they take a long time to execute.
  * Always create indicies on foreign keys.
  * Always create on delete (usually cascade) + on update triggers.
 
@@ -71,7 +66,7 @@ If you have your own list, please share :)
  * Speed, speed, speed (in deployment).
  * Use feature flags so you can automatically push code to production, constantly.
  * When setting resource limits, remove all limits, add nodes, see new resource usage, and set new limits.
- * _2_ ounces of prevention (planning, protocols, restrictions, alerts) for every pound of potentially needed cure (the integral of [potential downside if things go] * [the likelihood that each will happen]).
+ * 2 ounces of prevention (planning, protocols, restrictions, alerts) for every pound of potentially needed cure (the integral of [potential downside if things go] * [the likelihood that each will happen]).
  * When scaling, go expensive and messy. You can cut costs later, if it's even necessary.
 
 
@@ -121,9 +116,9 @@ If you have your own list, please share :)
  * When resolving links between two services (same business, same person, etc), use any way of matching you can think of, but be very speicific and pessimistic about matches. For instance, use phone number, specific latitude + longitude (4 decimal places), exact same address.
  * Use queues with retries, and create 1 deployment per queue, with autoscaling on both the nodes and the pods.
  * If a scrape doesn't execute perfectly, log the reason why somewhere (like, in the database).
- * Call the service API directly, through puppeteer.
+ * Call the service API directly.
  * Source of truth should be implicit. Always allow updating data points from multiple sources.
- * Never use a massive, magic upsert. Inserts and updates are two different operations and should be handled explicitly.
+ * Try to avoid upserts--update and insert should be two distinct functions (from Domain Driven Design).
  * Flow should be import -> verify/de-duplicate -> refresh.
  * Deduplication is a very important step and should be handled carefully. Decide upfront if you want manual deduplication (high quality, time consuming), or automatic deduplication (fast, but could introduce false positives/negatives).
 
@@ -142,7 +137,7 @@ If you have your own list, please share :)
  * When you deviate from OKRs, have a really, really good reason, or a really, really good question.
  * Everyone has a threshold for volatility, be aware of that and save it for important times.
  * Fire fast—everyone makes hiring mistakes (potentially a lot), and don’t let ego of good hiring prevent you from remedying the mistake. It’s not lack of mistakes, but how fast you adjust after noticing.
- * Give everyone their own kingdom.
+ * Decide whether the benefit of integrating is greater than the cost of communication.
  * OKRs are the guidepost, scrum is source of truth.
  * You can never escape planning, estimates, and time tracking. Just do them.
  * Poor planning on my part does not constitute an emergency on the people I manage or the people I report to.
@@ -161,17 +156,7 @@ If you have your own list, please share :)
  * Double do instead of double check.
  * Write a good example before delegating.
  * When working with new employees, start tasks three weeks before they're due--1 week to complete the task, 1 week to review, and 1 week for you to re-do it for them if necessary.
- * Develop as if you're spending God's (or your own) money.
-
-
-## Strategy
-
- * Identify profitable markets. Don’t build software for airlines.
- * Calculate the net present value when weighing choices.
- * Make many small, fast, high-risk bets with definite end points and definite results.
- * Bets/experiments/projects should build on one another.
- * Move as fast as possible, don’t get too invested in any one solution.
- * Quality follows a u-shape curve in relation to time--moving as fast as possible gives enormous bang-for-buck. Taking a medium amount of time is worst.
+ * Develop as if you're spending God's (or your a higher power's) money.
 
 
 ## Hiring
@@ -180,13 +165,12 @@ If you have your own list, please share :)
  * If you have an interview, follow up.
  * Don’t re-neg on salary, be very thorough about salary.
  * Use trial periods, and be very explicit about them and their start/end dates.
- * Ask about books they've read.
+ * Books and hard tools are good indicators of dedication to the craft.
  * Look for barbell curve--steeped in very old and very new technology.
 
 
 ## Sales
 
- * Always have a preorder form available.
  * Put together a “power statement.” (New Sales. Simplified.)
  * Divide time in thirds: 1/3 new sales, 1/3 pipeline, 1/3 maintaining current customers.
  * Arm your prospects with the tools they need to convince decision-makers.
@@ -202,10 +186,10 @@ If you have your own list, please share :)
 ## Other
 
  * Do all your work as if you're doing it for God or a higher power.
- * Always face the chaos. Don’t let the comfort of employment atrophy you.
+ * Always face the chaos. Don’t let comfort atrophy you.
  * Tell the truth, or least, if it's too difficult to discern what's true, don’t lie.
- * _Never_ walk away from a deal feeling like you’ve been “taken.”
  * Slow down negotiations, and don’t agree to anything verbally, prematurely.
+ * Don't sacrifice the truth in negotiations. Also, know logically and truthfully what you're worth. Don't negotiate for under or over that.
  * “A foolish consistency is the hobgoblin of little minds.”
  * The best systems are emergent, organic, and antifragile.
  * Read every day.
